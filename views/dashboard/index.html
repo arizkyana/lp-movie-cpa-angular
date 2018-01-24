@@ -1,0 +1,154 @@
+<div id="inSlider" class="carousel carousel-fade" data-ride="carousel">
+    <ol class="carousel-indicators">
+        <li data-target="#inSlider" ng-repeat="banner in banners" data-slide-to="{{ banner.id }}"
+            ng-class="{active:$first}"></li>
+    </ol>
+    <div class="carousel-inner" role="listbox">
+        <div class="item" ng-repeat="banner in banners" ng-class="{active:$first}">
+            <div class="container">
+                <div class="carousel-caption" style="top: 150px !important; left: 5%; right: 30%;">
+                    <h1> {{ banner.type == 'movie' ? 'Now Playing' : 'Airing Today' }} </h1>
+                    <h2>{{banner.title}}<br/></h1>
+                        <!-- <p>{{banner.overview}}</p> -->
+                        <p>
+                            <a class="btn btn-lg btn-primary" href="{{ campaign }}" role="button">Watch In HD Now</a>
+                            <!-- <a class="caption-link" href="#" role="button">Inspinia Theme</a> -->
+                        </p>
+                </div>
+                <!-- <div class="carousel-image wow zoomIn">
+    <img class="img-responsive" ng-src="{{ banner.backdrop_path }}" src="{{ banner.backdrop_path }}" alt="{{ banner.backdrop_path }}" />
+</div> -->
+            </div>
+            <!-- Set background for slide in css -->
+            <div class="header-back one"
+                 style="background: url('{{ banner.backdrop_path }}') no-repeat; background-size: cover"></div>
+        </div>
+    </div>
+    <a class="left carousel-control" href="#inSlider" role="button" data-slide="prev">
+        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+    </a>
+    <a class="right carousel-control" href="#inSlider" role="button" data-slide="next">
+        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+    </a>
+</div>
+<section id="movie" class="container services">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="ibox">
+                <div class="ibox-title">
+                    <h1>Movies
+                        <small>Now Playing</small>
+                    </h1>
+                </div>
+                <div class="ibox-content">
+                    <div class="row grid">
+                        <div class="col-md-3 grid-item" ng-repeat="movie in movies.nowPlaying">
+                            <div class="ibox">
+                                <div class="ibox-content product-box">
+
+                                    <div class="product-imitation no-padding">
+                                        <img class="img-responsive" src="{{ movie.poster_path }}" alt="{{ movie.poster_path }}" />
+                                    </div>
+                                    <div class="product-desc">
+                                <span class="product-price">
+                                    <i class="fa fa-star"></i> {{ movie.vote_average }}
+                                </span>
+                                        <small class="text-muted">{{ movie.release_date }}</small>
+                                        <a href="#" class="product-name"> {{ movie.original_title }}</a>
+
+
+                                        <!--<div class="small m-t-xs">-->
+                                            <!--{{ movie.overview }}-->
+                                        <!--</div>-->
+                                        <div class="m-t text-righ">
+
+                                            <a href="#" class="btn btn-xs btn-outline btn-primary btn-sm">Play <i
+                                                    class="fa fa-play"></i> </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="ibox-footer">
+                    <div class="pull-right">
+                        <a href="{{ campaign }}" class="btn btn-primary btn-sm">More Movies <i
+                                class="fa fa-chevron-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="tv" class="container services">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="ibox">
+                <div class="ibox-title">
+                    <h1>TV Shows
+                        <small>Airing Today</small>
+                    </h1>
+                </div>
+                <div class="ibox-content">
+                    <div class="row grid">
+                        <div class="col-md-3 grid-item" ng-repeat="tv in tv.airingToday">
+                            <div class="ibox">
+                                <div class="ibox-content product-box">
+
+                                    <div class="product-imitation no-padding">
+                                        <img class="img-responsive" src="{{ tv.poster_path }}" alt="{{ tv.poster_path }}" />
+                                    </div>
+                                    <div class="product-desc">
+                                <span class="product-price">
+                                    <i class="fa fa-star"></i> {{ tv.vote_average }}
+                                </span>
+                                        <small class="text-muted">{{ tv.first_air_date }}</small>
+                                        <a href="#" class="product-name" style="font-size: 9pt"> {{ tv.original_name }}</a>
+
+
+                                        <!--<div class="small m-t-xs">-->
+                                        <!--{{ movie.overview }}-->
+                                        <!--</div>-->
+                                        <div class="m-t text-righ">
+
+                                            <a href="#" class="btn btn-xs btn-outline btn-primary btn-sm">Play <i
+                                                    class="fa fa-play"></i> </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="ibox-footer">
+                    <div class="pull-right">
+                        <a href="{{ campaign }}" class="btn btn-primary btn-sm">More TV Shows <i
+                                class="fa fa-chevron-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section id="contact" class="gray-section contact">
+    <div class="container">
+        <!--<div class="row m-b-lg">-->
+            <!--<div class="col-lg-12 text-center">-->
+                <!--<div class="navy-line"></div>-->
+                <!--<h1>Contact Us</h1>-->
+
+            <!--</div>-->
+        <!--</div>-->
+
+
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 text-center m-t-lg m-b-lg">
+                <p><strong>© 2018 TV Movie HD Online</strong></p>
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html ng-app="foodgasm">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TV Movie HD Online</title>
+    <link href="themes/css/bootstrap.min.css" rel="stylesheet">
+    <link href="themes/font-awesome/css/font-awesome.css" rel="stylesheet">
+    <!-- datatable -->
+    <link rel="stylesheet" type="text/css" href="themes/css/plugins/dataTables/datatables.min.css">
+    <!-- /datatable -->
+    <!-- select2 -->
+    <link rel="stylesheet" type="text/css" href="themes/css/plugins/select2/select2.min.css">
+    <!-- /select2 -->
+    <link href="themes/css/animate.css" rel="stylesheet">
+    <link href="themes/css/style.css" rel="stylesheet">
+</head>
+
+<body class="top-navigation">
+    <div id="wrapper">
+        <div id="page-wrapper" class="gray-bg">
+            <div class="row border-bottom white-bg">
+                <nav class="navbar navbar-static-top" role="navigation">
+                    <div class="navbar-header">
+                        <button aria-controls="navbar" aria-expanded="false" data-target="#navbar" data-toggle="collapse" class="navbar-toggle collapsed" type="button">
+                            <i class="fa fa-reorder"></i>
+                        </button>
+                        <a href="/" class="navbar-brand">TV Movie HD</a>
+                    </div>
+                    <div class="navbar-collapse collapse" id="navbar">
+                        <ul class="nav navbar-nav">
+                            <li class="dropdown">
+                                <a aria-expanded="false" role="button" class="dropdown-toggle" data-toggle="dropdown"> TV Shows <span class="caret"></span></a>
+                                <ul role="menu" class="dropdown-menu">
+                                    <li ui-sref-active="active"><a ui-sref="app.setting.user">Popular</a></li>
+                                    <li ui-sref-active="active"><a ui-sref="app.setting.role">Top Rated</a></li>
+                                    <li ui-sref-active="active"><a ui-sref="app.setting.menu">On TV</a></li>
+                                    <li ui-sref-active="active"><a ui-sref="app.setting.menu">Airing Today</a></li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a aria-expanded="false" role="button" class="dropdown-toggle" data-toggle="dropdown"> Movies <span class="caret"></span></a>
+                                <ul role="menu" class="dropdown-menu">
+                                    <li ui-sref-active="active"><a ui-sref="app.setting.user">Popular</a></li>
+                                    <li ui-sref-active="active"><a ui-sref="app.setting.role">Top Rated</a></li>
+                                    <li ui-sref-active="active"><a ui-sref="app.setting.menu">Up Coming</a></li>
+                                    <li ui-sref-active="active"><a ui-sref="app.setting.menu">Now Playing</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+            <div class="wrapper wrapper-content">
+                <ui-view></ui-view>
+            </div>
+            <div class="footer">
+                <div class="pull-right">
+                    <strong>FREE </strong> Streaming TV Shows and Movies In High Definition.
+                </div>
+                <div>
+                    <strong>Copyright</strong> &copy; 2018
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Mainly scripts -->
+    <script src="themes/js/jquery-3.1.1.min.js"></script>
+    <script src="themes/js/bootstrap.min.js"></script>
+    <script src="themes/js/plugins/metisMenu/jquery.metisMenu.js"></script>
+    <script src="themes/js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+    <!-- Custom and plugin javascript -->
+    <script src="themes/js/inspinia.js"></script>
+    <script src="themes/js/plugins/pace/pace.min.js"></script>
+    <!-- Flot -->
+    <script src="themes/js/plugins/flot/jquery.flot.js"></script>
+    <script src="themes/js/plugins/flot/jquery.flot.tooltip.min.js"></script>
+    <script src="themes/js/plugins/flot/jquery.flot.resize.js"></script>
+    <!-- ChartJS-->
+    <script src="themes/js/plugins/chartJs/Chart.min.js"></script>
+    <!-- Peity -->
+    <script src="themes/js/plugins/peity/jquery.peity.min.js"></script>
+    <!-- Peity demo -->
+    <script src="themes/js/demo/peity-demo.js"></script>
+    <script type="text/javascript" src="themes/js/plugins/dataTables/datatables.min.js"></script>
+    <!-- angular 1  -->
+    <script type="text/javascript" src="bower_components/angular/angular.min.js"></script>
+    <script type="text/javascript" src="bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
+    <script type="text/javascript" src="bower_components/angular-route/angular-route.min.js"></script>
+    <script type="text/javascript" src="bower_components/angular-resource/angular-resource.min.js"></script>
+    <script type="text/javascript" src="bower_components/oclazyload/dist/ocLazyLoad.min.js"></script>
+    <!-- /angular 1 -->
+    <!-- static load controller apps -->
+    <script type="text/javascript" src="controllers/app.route.js"></script>
+    <script type="text/javascript" src="controllers/app.controller.js"></script>
+    <!-- /static load controller apps -->
+</body>
+
+</html>

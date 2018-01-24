@@ -1,0 +1,71 @@
+<ui-view>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <form name="form" method="post" ng-submit="save()" novalidate>
+                    <div class="ibox">
+                        <div class="ibox-title">
+                            <h5>Add Menu</h5>
+                        </div>
+                        <div class="ibox-content">
+                            <div class="form-group">
+                                <div class="row">
+                                    <label for="name" class="col-md-3">Name
+                                        <small class="text-danger">*</small>
+                                    </label>
+                                    <div class="col-md-9">
+                                        <input required="" ng-model="menu.name" type="text" name="name" class="form-control" placeholder="Name" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="row">
+                                    <label for="url" class="col-md-3">URL
+                                        <small class="text-danger">*</small>
+                                    </label>
+                                    <div class="col-md-9">
+                                        <input type="text" ng-model="menu.url" name="url" class="form-control" placeholder="URL" required />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="row">
+                                    <label for="icon" class="col-md-3">Icon
+                                        <small class="text-danger">*</small>
+                                    </label>
+                                    <div class="col-md-9">
+                                        <input required="" ng-model="menu.icon" type="text" name="icon" class="form-control" placeholder="Icon" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="row">
+                                    <label for="parent" class="col-md-3">Parent</label>
+                                    <div class="col-md-9">
+                                        <select parents="" class="form-control" ng-options="parent.name for parent in parents track by parent.id" ng-model="menu.parent"></select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="row">
+                                    <label for="show" class="col-md-3">&nbsp;</label>
+                                    <div class="col-md-9">
+                                        <div class="checkbox">
+                                            <label>
+                                                <input type="checkbox" name="show" ng-model="menu.show" /> Show at Sidebar?
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="ibox-footer text-right">
+                            <button type="submit" class="btn btn-primary" ng-disabled="form.$invalid || form.$pristine">Save </button>
+                            <a ui-sref="app.setting.menu" class="btn btn-default">Cancel</a>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</ui-view>
