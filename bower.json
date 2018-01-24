@@ -24,6 +24,7 @@
     "angular-resource": "^1.6.8",
     "angular-route": "^1.6.8",
     "angular-ui-router": "^1.0.12",
-    "masonry-layout": "^4.2.1"
+    "masonry-layout": "^4.2.1",
+    "moment": "^2.20.1"
   }
 }

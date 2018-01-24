@@ -21,7 +21,8 @@ app.constant('API', {
         }
     },
     CAMPAIGN: {
-        MOVIES: 'http://ah.groundsec.com?s1=cg-875&s2=59ddebcf5fc61a6f73dbf537'
+        MOVIES_1: 'http://ah.groundsec.com?s1=cg-875&s2=59ddebcf5fc61a6f73dbf537',
+        MOVIES_2: 'http://premium.groundsec.com?s1=cg-875&s2=5a584f9359ae381f37b9d276&s3=5a4eeb8859ae38278f07d952'
     }
 });
 
@@ -30,6 +31,10 @@ app.config(['$ocLazyLoadProvider', function($ocLazyLoadProvider) {
         debug: false,
         events: true
     });
+}]);
+
+app.config(['$sceDelegateProvider', function($sceDelegateProvider) {
+    $sceDelegateProvider.resourceUrlWhitelist(['self', 'https://www.youtube.com/**']);
 }]);
 
 app.config(['$httpProvider', function($httpProvider) {
@@ -52,7 +57,8 @@ app.config(['$httpProvider', function($httpProvider) {
 app.run(['$rootScope', '$ocLazyLoad', 'API', function($rootScope, $ocLazyLoad, API) {
     console.log("Angular is Running");
 
-    $rootScope.campaign = API.CAMPAIGN.MOVIES;
+    $rootScope.campaign = API.CAMPAIGN.MOVIES_1;
+    $rootScope.campaign2 = API.CAMPAIGN.MOVIES_2;
 
     $(document).ready(function() {
 

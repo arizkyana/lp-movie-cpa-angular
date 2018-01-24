@@ -1,0 +1,111 @@
+<div id="inSlider" class="carousel carousel-fade" data-ride="carousel">
+    <div class="carousel-inner" role="listbox">
+        <div class="item active">
+            <div class="container">
+                <div class="carousel-caption" style="left: 2em; right: 30%; top: 10em;">
+                    <h1> {{ movie.movie.title }} </h1>
+                    <span>{{ movie.movie.tagline }}</span>
+                    <br />
+                    <br />
+                    <span><i class="fa fa-star"></i> {{ movie.movie.vote_average }}</span>
+                    <br />
+                    <span ng-repeat="genre in movie.movie.genres">{{ genre.name }}&nbsp;</span>
+                    <p>{{ movie.movie.runtime }} minutes</p>
+                    <a href="{{ campaign }}" class="btn btn-danger"><i class="fa fa-download"></i> Download</a>
+                    <a href="{{ campaign2 }}" class="btn btn-success"><i class="fa fa-eye"></i> Watch Full In HD</a>
+                </div>
+                <!-- <div class="carousel-image wow zoomIn">
+    <img class="img-responsive" ng-src="{{ banner.backdrop_path }}" src="{{ banner.backdrop_path }}" alt="{{ banner.backdrop_path }}" />
+</div> -->
+            </div>
+            <!-- Set background for slide in css -->
+            <div class="header-back one" style="background: url('{{ movie.movie.backdrop_path }}') no-repeat; background-size: cover"></div>
+        </div>
+    </div>
+</div>
+<section id="overview" class="container">
+    <div class="ibox">
+        <div class="ibox-title">
+            <h1>Movie <small>Details</small></h1>
+        </div>
+        <div class="ibox-content">
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="ibox">
+                        <div class="ibox-content product-box">
+                            <div class="product-imitation no-padding">
+                                <img class="img-responsive" src="{{ movie.movie.poster_path }}" alt="{{ movie.movie.poster_path }}" />
+                            </div>
+                            <div class="product-desc no-padding">
+                                <span class="product-price">
+                                    <i class="fa fa-star"></i> {{ movie.movie.vote_average }}
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-9">
+                    <div class="row">
+                        <div class="col-md-12 no-padding">
+                            <h2><a href="{{ campaign }}" class="product-name"> {{ movie.movie.original_title }}</a></h2>
+                            <div ng-if="movie.movie.production_companies.length > 0">
+                                <h2>Production Company</h2>
+                                <p>{{ movie.movie.companies }}</span>
+                            </div>
+                            <small class="text-muted">Release Date : {{ movie.movie.release_date | date : 'd MMM yyyy'}}</small>
+                            <h2>Overview</h2>
+                            <p>
+                                {{ movie.movie.overview }}
+                            </p>
+                            <div ng-if="movie.trailer">
+                                <h2>Trailler</h2>
+                                <iframe width="810" height="415" ng-src="{{ 'https://www.youtube.com/embed/' + movie.trailer }}" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                            </div>
+                            <div class="text-center">
+                                <a href="{{ campaign }}" class="btn btn-danger"><i class="fa fa-download"></i> Download</a>
+                                <a href="{{ campaign2 }}" class="btn btn-success"><i class="fa fa-eye"></i> Watch Full In HD</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section id="movie" class="container services">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="ibox">
+                <div class="ibox-title">
+                    <h1>Recommendation
+                        <small>Movies</small>
+                    </h1>
+                </div>
+                <div class="ibox-content">
+                    <div class="slick_demo_2">
+                        <div ng-repeat="movie in movie.recommendations" repeat-event>
+                            <div class="ibox" ng-click="goToDetail(movie.id)" style="cursor: pointer;">
+                                <div class="ibox-content product-box">
+                                    <div class="product-imitation no-padding">
+                                        <img class="img-responsive" src="{{ movie.poster_path }}" alt="{{ movie.poster_path }}" />
+                                    </div>
+                                    <div class="product-desc no-padding">
+                                        <span class="product-price">
+                                    <i class="fa fa-star"></i> {{ movie.vote_average }}
+                                </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="ibox-footer">
+                    <div class="pull-right">
+                        <a href="{{ campaign }}" class="btn btn-primary btn-sm">More Movies <i
+                                class="fa fa-chevron-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

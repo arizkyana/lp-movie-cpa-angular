@@ -2,8 +2,6 @@ angular.module('foodgasm')
     .factory('Tv', ['$resource', 'API', function($resource, API) {
         var url = API.TMDB.BASE_URI + API.TMDB.TV;
 
-        console.log(url);
-
         let airingToday = function() {
             console.log(url);
             return $resource(url + '/airing_today', {}, {

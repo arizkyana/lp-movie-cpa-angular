@@ -2,8 +2,6 @@ angular.module('foodgasm')
     .factory('Movies', ['$resource', 'API', function($resource, API) {
         var url = API.TMDB.BASE_URI + API.TMDB.MOVIE;
 
-        console.log(url);
-
         let latest = function() {
             console.log(url);
             return $resource(url + '/latest', {}, {
@@ -40,6 +38,24 @@ angular.module('foodgasm')
             });
         };
 
+        let movie = function(id) {
+            console.log(id);
+            return $resource(url + '/:id', { id: id }, {
+                get: { method: 'get' }
+            })
+        }
+
+        let recommendation = function(id) {
+            return $resource(url + '/:id/recommendations', { id: id }, {
+                get: { method: 'get' }
+            });
+        }
+
+        let videos = function(id) {
+            return $resource(url + '/:id/videos', { id: id }, {
+                get: { method: 'get' }
+            })
+        };
 
 
         return {
@@ -47,7 +63,10 @@ angular.module('foodgasm')
             nowPlaying: (nowPlaying),
             popular: (popular),
             topRated: (topRated),
-            upComing: (upComing)
+            upComing: (upComing),
+            movie: (movie),
+            recommendation: (recommendation),
+            videos: (videos)
         };
 
     }]);

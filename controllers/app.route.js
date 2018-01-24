@@ -8,7 +8,8 @@ route.config([
     '$urlRouterProvider',
     function($stateProvider, $locationProvider, $urlRouterProvider) {
 
-        $urlRouterProvider.otherwise('/app/');
+        $urlRouterProvider.otherwise('/app/home');
+
 
 
         // routes
@@ -20,7 +21,7 @@ route.config([
 
             })
             .state('app.dashboard', {
-                url: '/',
+                url: '/home',
                 templateUrl: 'views/dashboard/index.html',
                 resolve: {
                     loadController: loadController([
@@ -92,11 +93,30 @@ route.config([
                     ])
                 },
                 controller: 'SettingMenuUpdateController'
-            });
+            })
+
+            // app.movies
+            .state('app.movies', {
+                abstract: true,
+                url: '/movies',
+                template: '<ui-view />'
+            })
+            .state('app.movies.detail', {
+                url: '/:id',
+                replace: true,
+                templateUrl: 'views/movies/detail.html',
+                resolve: {
+                    loadController: loadController([
+                        'models/movies.js',
+                        'controllers/movies/detail.js'
+                    ])
+                },
+                controller: 'MoviesDetailController'
+            })
 
 
 
-
+        $locationProvider.html5Mode(true);
     }
 ]);
 

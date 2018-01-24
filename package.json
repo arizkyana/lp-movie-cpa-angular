@@ -3,13 +3,13 @@
   "version": "1.0.0",
   "description": "Television and Movies Directory",
   "main": "app.js",
-
   "dependencies": {
+    "express": "^4.16.2",
     "http-server": "^0.10.0"
   },
   "devDependencies": {},
   "scripts": {
-    "start": "http-server",
+    "start": "node app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
