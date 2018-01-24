@@ -16,5 +16,5 @@ app.all('/*', function(req, res, next) {
     res.sendFile('index.html', { root: __dirname });
 });
 
-app.listen(8080);
-console.log('Open : ', 'http://localhost:8080');
+app.listen(3000);
+console.log('Open : ', 'http://localhost:3000');
