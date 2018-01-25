@@ -1,7 +1,7 @@
 angular.module('foodgasm')
     .controller('MoviesDetailController', [
-        '$rootScope', '$scope', 'Movies', '$stateParams', 'API', '$state',
-        function($rootScope, $scope, Movies, $stateParams, API, $state) {
+        '$rootScope', '$scope', 'Movies', '$stateParams', 'API', '$state', 'Tv',
+        function($rootScope, $scope, Movies, $stateParams, API, $state, Tv) {
             console.log('masuk detail movie : ', $stateParams.id);
 
             $scope.movie = {
@@ -10,13 +10,17 @@ angular.module('foodgasm')
                 trailer: {}
             };
 
+            $scope.tv = {
+                airingToday: []
+            };
+
             Movies.movie($stateParams.id).get()
                 .$promise
                 .then(function(movie) {
                     $scope.movie.movie = movie;
 
                     $scope.movie.movie.backdrop_path = API.TMDB.IMAGES.w1280 + movie.backdrop_path;
-                    $scope.movie.movie.poster_path = API.TMDB.IMAGES.original + movie.poster_path;
+                    $scope.movie.movie.poster_path = API.TMDB.IMAGES.w300 + movie.poster_path;
 
                     let companies = [];
                     $.each($scope.movie.movie.production_companies, function(i, company) {
@@ -43,7 +47,7 @@ angular.module('foodgasm')
                 .then(function(videos) {
 
                     let video = {};
-                    if (videos.results.length > 1) {
+                    if (videos.results.length >= 1) {
                         video = videos.results[0];
                         $scope.movie.trailer = video.key;
 
@@ -51,6 +55,14 @@ angular.module('foodgasm')
                     }
 
 
+                    return Tv.airingToday().get().$promise;
+                })
+                .then(function(airingToday) {
+                    $scope.tv.airingToday = $.map(airingToday.results, function(airing) {
+                        airing.backdrop_path = API.TMDB.IMAGES.w1280 + airing.backdrop_path;
+                        airing.poster_path = API.TMDB.IMAGES.w300 + airing.poster_path;
+                        return airing;
+                    });
 
                 })
                 .catch(function(err) {
@@ -59,7 +71,11 @@ angular.module('foodgasm')
 
             $scope.goToDetail = function(id) {
                 $state.go('app.movies.detail', { id: id });
-            }
+            };
+
+            $scope.goToDetailTv = function(id) {
+                $state.go('app.tv.detail', { id: id });
+            };
 
         }
     ])
@@ -68,8 +84,10 @@ angular.module('foodgasm')
         return {
             restrict: 'A',
             link: function(scope, element, attr) {
+
                 if (scope.$last) {
-                    $('.slick_demo_2').slick({
+                    let parentClass = angular.element(element).parent().attr('class');
+                    $('.' + parentClass).slick({
                         infinite: true,
                         slidesToShow: 4,
                         slidesToScroll: 1,

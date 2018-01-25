@@ -31,6 +31,17 @@ angular.module('foodgasm')
             });
         };
 
+        let tv = function(id) {
+            return $resource(url + '/:id', { id: id }, {
+                get: { method: 'get' }
+            });
+        };
+
+        let videos = function(id) {
+            return $resource(url + '/:id/videos', { id: id }, {
+                get: { method: 'get' }
+            });
+        };
 
 
 
@@ -39,6 +50,8 @@ angular.module('foodgasm')
             onTheAir: (onTheAir),
             popular: (popular),
             topRated: (topRated),
+            tv: (tv),
+            videos: (videos)
         };
 
     }]);

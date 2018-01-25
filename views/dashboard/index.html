@@ -102,12 +102,12 @@
                                     <i class="fa fa-star"></i> {{ tv.vote_average }}
                                 </span>
                                         <small class="text-muted">{{ tv.first_air_date }}</small>
-                                        <a href="#" class="product-name" style="font-size: 9pt"> {{ tv.original_name }}</a>
+                                        <a ui-sref="app.tv.detail({id: tv.id})" class="product-name" style="font-size: 9pt"> {{ tv.original_name }}</a>
                                         <!--<div class="small m-t-xs">-->
                                         <!--{{ movie.overview }}-->
                                         <!--</div>-->
                                         <div class="m-t text-righ">
-                                            <a href="#" class="btn btn-xs btn-outline btn-primary btn-sm">Play <i
+                                            <a ui-sref="app.tv.detail({id: tv.id})" class="btn btn-xs btn-outline btn-primary btn-sm">Play <i
                                                     class="fa fa-play"></i> </a>
                                         </div>
                                     </div>

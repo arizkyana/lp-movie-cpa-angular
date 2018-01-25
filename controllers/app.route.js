@@ -108,10 +108,31 @@ route.config([
                 resolve: {
                     loadController: loadController([
                         'models/movies.js',
+                        'models/tv.js',
                         'controllers/movies/detail.js'
                     ])
                 },
                 controller: 'MoviesDetailController'
+            })
+
+            // app.tv
+            .state('app.tv', {
+                abstract: true,
+                url: '/tv',
+                template: '<ui-view />'
+            })
+            .state('app.tv.detail', {
+                url: '/:id',
+                replace: true,
+                templateUrl: 'views/tv/detail.html',
+                resolve: {
+                    loadController: loadController([
+                        'models/tv.js',
+                        'models/movies.js',
+                        'controllers/tv/detail.js'
+                    ])
+                },
+                controller: 'TvDetailController'
             })
 
 
