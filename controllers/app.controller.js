@@ -55,7 +55,7 @@ app.config(['$httpProvider', function($httpProvider) {
 }]);
 
 app.run(['$rootScope', '$ocLazyLoad', 'API', function($rootScope, $ocLazyLoad, API) {
-    console.log("Angular is Running");
+
 
     $rootScope.campaign = API.CAMPAIGN.MOVIES_1;
     $rootScope.campaign2 = API.CAMPAIGN.MOVIES_2;

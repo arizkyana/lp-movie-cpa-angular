@@ -4,6 +4,11 @@ angular.module('foodgasm')
         function($rootScope, $scope, Movies, $stateParams, API, $state, Tv) {
             console.log('masuk detail movie : ', $stateParams.id);
 
+            $rootScope.meta = {
+                title: '',
+                content: ''
+            };
+
             $scope.movie = {
                 movie: {},
                 recommendations: [],
@@ -17,6 +22,12 @@ angular.module('foodgasm')
             Movies.movie($stateParams.id).get()
                 .$promise
                 .then(function(movie) {
+
+                    $rootScope.meta = {
+                        title: movie.original_title,
+                        content: movie.overview
+                    };
+
                     $scope.movie.movie = movie;
 
                     $scope.movie.movie.backdrop_path = API.TMDB.IMAGES.w1280 + movie.backdrop_path;

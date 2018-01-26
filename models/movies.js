@@ -3,7 +3,7 @@ angular.module('foodgasm')
         var url = API.TMDB.BASE_URI + API.TMDB.MOVIE;
 
         let latest = function() {
-            console.log(url);
+
             return $resource(url + '/latest', {}, {
                 get: { method: 'get' },
                 query: { method: 'get', isArray: true }
@@ -39,7 +39,7 @@ angular.module('foodgasm')
         };
 
         let movie = function(id) {
-            console.log(id);
+
             return $resource(url + '/:id', { id: id }, {
                 get: { method: 'get' }
             })

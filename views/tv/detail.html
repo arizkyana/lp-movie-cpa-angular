@@ -83,7 +83,7 @@
                                     <div class="product-imitation no-padding">
                                         <img class="img-responsive" src="{{ seasons.poster_path }}" alt="{{ seasons.poster_path }}" />
                                     </div>
-                                    <div class="product-desc no-padding">
+                                    <div class="product-desc ">
                                         <span class="product-price">
                                     <i class="fa fa-film"></i> {{ seasons.season_number }}
                                 </span>
@@ -99,74 +99,68 @@
 </section>
 <section id="tv" class="container services">
     <div class="row">
-        <div class="col-md-12">
-            <div class="ibox">
-                <div class="ibox-title">
-                    <h1>Popular
-                        <small>Tv Shows</small>
-                    </h1>
-                </div>
-                <div class="ibox-content">
-                    <div class="slick_demo_2">
-                        <div ng-repeat="tv in tv.populars" ng-if="tv" repeat-event>
-                            <div class="ibox" ng-click="goToDetail(tv.id)" style="cursor: pointer;">
-                                <div class="ibox-content product-box">
-                                    <div class="product-imitation no-padding">
-                                        <img class="img-responsive" src="{{ tv.poster_path }}" alt="{{ tv.poster_path }}" />
-                                    </div>
-                                    <div class="product-desc no-padding">
-                                        <span class="product-price">
+        <div class="col-lg-12 text-center">
+            <h1>Popular<br> <span class="navy"> TV Shows</span> </h1>
+            <p></p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-10 col-md-offset-1 col-lg-10 col-lg-offset-1 col-xs-12">
+            <div class="slick_demo_2">
+                <div ng-repeat="tv in tv.populars" ng-if="tv" repeat-event>
+                    <div class="ibox" ng-click="goToDetail(tv.id)" style="cursor: pointer;">
+                        <div class="ibox-content product-box">
+                            <div class="product-imitation no-padding">
+                                <img class="img-responsive" src="{{ tv.poster_path }}" alt="{{ tv.poster_path }}" />
+                            </div>
+                            <div class="product-desc">
+                                <span class="product-price">
                                     <i class="fa fa-star"></i> {{ tv.vote_average }}
                                 </span>
-                                    </div>
-                                </div>
+                                <a ui-sref="app.tv.detail({id: tv.id})" class="product-name"> {{ tv.original_name }}</a>
+                                <small class="text-muted">{{ tv.first_air_date }}</small>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="ibox-footer">
-                    <div class="pull-right">
-                        <a href="{{ campaign2 }}" class="btn btn-primary btn-sm">More Tv Shows <i
+            </div>
+            <div class="text-center">
+                <a href="{{ campaign2 }}" class="btn btn-primary btn-sm">Show More TV Shows <i
                                 class="fa fa-chevron-right"></i></a>
-                    </div>
-                </div>
             </div>
         </div>
     </div>
 </section>
 <section id="movie" class="container services">
     <div class="row">
-        <div class="col-md-12">
-            <div class="ibox">
-                <div class="ibox-title">
-                    <h1>Movies
-                        <small>Now Playing</small>
-                    </h1>
-                </div>
-                <div class="ibox-content">
-                    <div class="slick_movies">
-                        <div ng-repeat="movie in movies" ng-if="movie" repeat-event>
-                            <div class="ibox" ng-click="goToDetailMovie(movie.id)" style="cursor: pointer;">
-                                <div class="ibox-content product-box">
-                                    <div class="product-imitation no-padding">
-                                        <img class="img-responsive" src="{{ movie.poster_path }}" alt="{{ movie.poster_path }}" />
-                                    </div>
-                                    <div class="product-desc no-padding">
-                                        <span class="product-price">
+        <div class="col-lg-12 text-center">
+            <h1>Movies<br> <span class="navy"> Now Playing</span> </h1>
+            <p></p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-10 col-md-offset-1 col-lg-10 col-lg-offset-1 col-xs-12">
+            <div class="slick_movies">
+                <div ng-repeat="movie in movies" ng-if="movie" repeat-event>
+                    <div class="ibox" ng-click="goToDetailMovie(movie.id)" style="cursor: pointer;">
+                        <div class="ibox-content product-box">
+                            <div class="product-imitation no-padding">
+                                <img class="img-responsive" src="{{ movie.poster_path }}" alt="{{ movie.poster_path }}" />
+                            </div>
+                            <div class="product-desc">
+                                <span class="product-price">
                                     <i class="fa fa-star"></i> {{ movie.vote_average }}
                                 </span>
-                                    </div>
-                                </div>
+                                <a ui-sref="app.movies.detail({id: movie.id})" class="product-name"> {{ movie.original_title }}</a>
+                                <small class="text-muted">{{ movie.release_date }}</small>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="ibox-footer">
-                    <div class="pull-right">
-                        <a href="{{ campaign }}" class="btn btn-primary btn-sm">More Movies <i
+            </div>
+            <div class="text-center">
+                <a href="{{ campaign }}" class="btn btn-primary btn-sm">Show More Movies <i
                                 class="fa fa-chevron-right"></i></a>
-                    </div>
-                </div>
             </div>
         </div>
     </div>

@@ -4,6 +4,8 @@ angular.module('foodgasm')
         function($rootScope, $scope, Tv, $stateParams, API, $state, Movies) {
             console.log('masuk detail tv : ', $stateParams.id);
 
+            $rootScope.meta = { title: '', content: '' };
+
             $scope.tv = {};
             $scope.movies = [];
 
@@ -11,7 +13,14 @@ angular.module('foodgasm')
                 .$promise
                 .then(function(tv) {
 
+                    $rootScope.meta = {
+                        title: tv.original_name,
+                        content: tv.overview
+                    };
+
                     $scope.tv = tv;
+
+
 
                     $scope.tv.backdrop_path = API.TMDB.IMAGES.w1280 + tv.backdrop_path;
                     $scope.tv.poster_path = API.TMDB.IMAGES.w300 + tv.poster_path;

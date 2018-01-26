@@ -3,7 +3,7 @@ angular.module('foodgasm')
         var url = API.TMDB.BASE_URI + API.TMDB.TV;
 
         let airingToday = function() {
-            console.log(url);
+
             return $resource(url + '/airing_today', {}, {
                 get: { method: 'get' },
                 query: { method: 'get', isArray: true }
