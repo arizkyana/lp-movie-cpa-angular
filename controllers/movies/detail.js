@@ -19,6 +19,8 @@ angular.module('foodgasm')
                 airingToday: []
             };
 
+            $scope.showTrailler = false;
+
             Movies.movie($stateParams.id).get()
                 .$promise
                 .then(function(movie) {
