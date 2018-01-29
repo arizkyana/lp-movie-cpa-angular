@@ -8,7 +8,7 @@ route.config([
     '$urlRouterProvider',
     function($stateProvider, $locationProvider, $urlRouterProvider) {
 
-        $urlRouterProvider.otherwise('/app/home');
+        $urlRouterProvider.otherwise('/stream/home');
 
 
 
@@ -16,7 +16,7 @@ route.config([
 
         $stateProvider.state('app', {
                 abstract: true,
-                url: '/app',
+                url: '/stream',
                 template: '<ui-view />',
 
             })
