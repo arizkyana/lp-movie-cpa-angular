@@ -18,6 +18,8 @@ angular.module('foodgasm')
                         content: tv.overview
                     };
 
+                    $rootScope.pageTitle = tv.original_name + ' | JOIN NOW! For Full Experience';
+
                     $scope.tv = tv;
 
 
@@ -44,6 +46,13 @@ angular.module('foodgasm')
                     });
 
                     $scope.tv.languages = tv.languages.join();
+                    $scope.tv.created_by = $.map(tv.created_by, function(created) {
+                        created.profile_path = API.TMDB.IMAGES.w300 + created.profile_path;
+                        return created;
+                    });
+                    $scope.tv.created_by_name = $.map(tv.created_by, function(created) {
+                        return created.name;
+                    }).join();
 
                     return Tv.videos($stateParams.id).get().$promise;
 

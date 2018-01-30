@@ -60,6 +60,8 @@ app.run(['$rootScope', '$ocLazyLoad', 'API', function($rootScope, $ocLazyLoad, A
     $rootScope.campaign = API.CAMPAIGN.MOVIES_1;
     $rootScope.campaign2 = API.CAMPAIGN.MOVIES_2;
 
+    $rootScope.pageTitle = 'Best Trailer Site | JOIN NOW! For Full Experience';
+
     $(document).ready(function() {
 
         $('body').scrollspy({

@@ -12,7 +12,8 @@ angular.module('foodgasm')
             $scope.movie = {
                 movie: {},
                 recommendations: [],
-                trailer: {}
+                trailer: {},
+                reviews: []
             };
 
             $scope.tv = {
@@ -29,6 +30,8 @@ angular.module('foodgasm')
                         title: movie.original_title,
                         content: movie.overview
                     };
+
+                    $rootScope.pageTitle = movie.original_title + ' | JOIN NOW! For Full Experience';
 
                     $scope.movie.movie = movie;
 
@@ -77,6 +80,11 @@ angular.module('foodgasm')
                         return airing;
                     });
 
+                    return Movies.reviews($stateParams.id).get().$promise;
+
+                })
+                .then(function(reviews) {
+                    $scope.movie.reviews = reviews.results;
                 })
                 .catch(function(err) {
                     console.log(err);

@@ -57,6 +57,12 @@ angular.module('foodgasm')
             })
         };
 
+        let reviews = function(id) {
+            return $resource(url + '/:id/reviews', { id: id }, {
+                get: { method: 'get' }
+            })
+        };
+
 
         return {
             latest: (latest),
@@ -66,7 +72,8 @@ angular.module('foodgasm')
             upComing: (upComing),
             movie: (movie),
             recommendation: (recommendation),
-            videos: (videos)
+            videos: (videos),
+            reviews: (reviews)
         };
 
     }]);
